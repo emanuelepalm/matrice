@@ -5,7 +5,7 @@ public class Menu {
     static Scanner scanner = new Scanner(System.in);
 
     public static void menu() {
-        System.out.println("MENU \n 1) Esercizio Matrici \n 2) Esercizio Piramide \n 0) Esci");
+        System.out.println("MENU \n 1) Esercizio Matrici \n 2) Esercizio Piramide \n 3) Calcolatrice \n 0) Esci");
         int selezione = scanner.nextInt();
         switch (selezione) {
             case 0:
@@ -18,6 +18,11 @@ public class Menu {
                 break;
             case 2:
                 Main.exPyramid();
+                System.out.println("\nEsercizio terminato \n");
+                menu();
+                break;
+            case 3:
+                Main.exCalculator();
                 System.out.println("\nEsercizio terminato \n");
                 menu();
                 break;
@@ -56,6 +61,28 @@ public class Menu {
                 Random random = new Random();
                 int num = random.nextInt(25);
                 Pyramid.generate(num);
+                break;
+            default:
+                System.out.println("Errore!! \n A questo numero non è associato nessun esercizio, riprova");
+                matrixMenu();
+        }
+    }
+
+    public static void calculatorMenu() {
+        System.out.println("Seleziona: \n1)Calcolatrice base \n2)Ritorna i numeri primi fino a un numero inserito \n3)Verifica se un numero è primo o meno \n4) Fattoriale             ");
+        int selezione = scanner.nextInt();
+        switch (selezione) {
+            case 1:
+                Calculator.calculator();
+                break;
+            case 2:
+                Calculator.primeNumberRange();
+                break;
+            case 3:
+                Calculator.isPrime();
+                break;
+            case 4:
+                Calculator.factorial();
                 break;
             default:
                 System.out.println("Errore!! \n A questo numero non è associato nessun esercizio, riprova");

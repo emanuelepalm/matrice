@@ -16,5 +16,8 @@ public class Main {
         Pyramid.welcome();
         Menu.pyramidMenu();
     }
-
+    public static void exCalculator() {
+        Calculator.welcome();
+        Menu.calculatorMenu();
+    }
 }
