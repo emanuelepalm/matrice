@@ -1,27 +1,52 @@
+import java.util.Random;
+
 public class Main {
     public static void main(String[] args) {
-        int[][] array = new int[5][5];
-        System.out.println("Verticale");
-        for(int i = 0; i < array.length; i++) {
-            System.out.println();
-            for(int j = 0; j < array[i].length; j++ ) {
-                array[i][j] = (j+1)*(i+1);
-                System.out.println("[" + (i+1) + "][" + (j+1) + "] => " + array[i][j]);
+       int[][] matrix = new int[5][5];
+        loadMatrix(matrix, 100);
+        printHorizontalMatrix(matrix);
+        printVerticalMatrix(matrix);
+
+    }
+    public static void loadMatrix(int[][] matrix, int bound) {
+        Random random = new Random();
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                matrix[i][j] = random.nextInt(bound);
             }
         }
+    }
 
-        System.out.println(System.lineSeparator() + "Orizzontale");
-        for(int i = 0; i < array.length; i++) {
+    public static void loadMatrix(int[][] matrix) {
+        Random random = new Random();
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                matrix[i][j] = random.nextInt(20);
+            }
+        }
+    }
+
+    public static void printVerticalMatrix(int[][] matrix) {
+        System.out.println("\n Verticale ");
+        for (int row = 0; row < matrix.length; row++) {
             System.out.println();
-            for(int j = 0; j < array[0].length; j++ ) {
-                if((array[i][j]) >= 10) {
-                    System.out.print("|" + (array[i][j]) + "|");
-                }else {
-                    System.out.print("| " + (array[i][j]) + "|");
+            for (int col = 0; col < matrix[row].length; col++) {
+                System.out.println("[" + (row + 1) + "][" + (col + 1) + "] => " + matrix[row][col]);
+            }
+        }
+    }
+
+    public static void printHorizontalMatrix(int[][] matrix) {
+        System.out.println("Orizzontale \n");
+        for (int row = 0; row < matrix.length; row++) {
+            System.out.println();
+            for (int col = 0; col < matrix[0].length; col++) {
+                if ((matrix[row][col]) >= 10) {
+                    System.out.print("|" + (matrix[row][col]) + "|");
+                } else {
+                    System.out.print("| " + (matrix[row][col]) + "|");
                 }
             }
         }
-
-
     }
 }
