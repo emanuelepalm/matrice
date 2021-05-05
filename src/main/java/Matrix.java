@@ -4,6 +4,7 @@ public class Matrix {
 
     public static void welcome() {
         System.out.println("Esercizio Matrici");
+        Menu.matrixMenu();
     }
     /**
      loadMatrix() Genera una matrice con parametro impostato da noi

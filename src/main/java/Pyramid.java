@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Pyramid {
     public static void welcome() {
         System.out.println("Esercizio Piramide");
+        Menu.pyramidMenu();
     }
     public static void generate() {
         System.out.println("Generazione con input");
