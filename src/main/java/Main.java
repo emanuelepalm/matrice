@@ -8,6 +8,11 @@ public class Main {
         printVerticalMatrix(matrix);
 
     }
+    /**
+     loadMatrix() Genera una matrice con parametro impostato da noi
+     @param matrix matrice
+     @param bound  valore del parametro random
+     */
     public static void loadMatrix(int[][] matrix, int bound) {
         Random random = new Random();
         for (int i = 0; i < matrix.length; i++) {
@@ -16,7 +21,10 @@ public class Main {
             }
         }
     }
-
+    /**
+        loadMatrix() Genera una matrice con parametro = 20
+        @param matrix matrice
+     */
     public static void loadMatrix(int[][] matrix) {
         Random random = new Random();
         for (int i = 0; i < matrix.length; i++) {
