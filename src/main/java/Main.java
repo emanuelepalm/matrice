@@ -17,7 +17,7 @@ public class Main {
                 if((array[i][j])>=10) {
                     System.out.print("|" + (array[i][j]) + "|");
                 }else {
-                    System.out.print("|" + (array[i][j]) + " |");
+                    System.out.print("| " + (array[i][j]) + "|");
                 }
             }
         }
