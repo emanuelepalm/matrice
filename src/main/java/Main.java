@@ -14,7 +14,7 @@ public class Main {
         for(int i = 0; i < array.length; i++) {
             System.out.println();
             for(int j = 0; j < array[0].length; j++ ) {
-                if((array[i][j])>=10) {
+                if((array[i][j]) >= 10) {
                     System.out.print("|" + (array[i][j]) + "|");
                 }else {
                     System.out.print("| " + (array[i][j]) + "|");
