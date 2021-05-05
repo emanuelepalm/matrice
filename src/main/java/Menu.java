@@ -5,9 +5,12 @@ public class Menu {
     static Scanner scanner = new Scanner(System.in);
 
     public static void menu() {
-        System.out.println("MENU \n 1) Esercizio Matrici \n 2) Esercizio Piramide");
+        System.out.println("MENU \n 1) Esercizio Matrici \n 2) Esercizio Piramide \n 0) Esci");
         int selezione = scanner.nextInt();
         switch (selezione) {
+            case 0:
+                System.out.println("Grazie e arrivederci");
+                break;
             case 1:
                 Main.exMatrix();
                 System.out.println("\nEsercizio terminato \n");
