@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class Calculator {
@@ -29,7 +30,7 @@ public class Calculator {
                     System.out.println(result);
                 } else {
                     System.out.println("Inserisci il primo numero");
-                    a = scanner.nextFloat();
+                    a = scanner.nextFloat()                         ;
                 }
             } else {
                 System.out.println("Inserisci il primo numero");
@@ -105,13 +106,16 @@ public class Calculator {
         return result;
     }
 
-    public static long factorial(int num) {
-            if (num == 0) {
-                return 1;
-            } else {
-                return (num * factorial(num - 1));
-            }
+    public static BigInteger factorial(int num) {
+        BigInteger result = BigInteger.valueOf(1);
+
+        for (long factor = 2; factor <= num; factor++) {
+            result = result.multiply(BigInteger.valueOf(factor));
         }
 
+        return result;
     }
+
+
+}
 

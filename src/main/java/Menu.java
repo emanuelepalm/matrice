@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -93,16 +94,16 @@ public class Menu {
             case 4:
                 System.out.println("HAI SCELTO FATTORIALE \nInserisci un numero fino a 49");
                 num = scanner.nextInt();
-                if (num > 49) {
-                    System.out.println("ERRORE!!!\n Il numero è troppo grande!");
+                if (num <= 0) {
+                    System.err.println("ERRORE!!!\n Il numero deve essere maggiore di 0!");
                     calculatorMenu();
                     break;
                 } else {
-                    long result = Calculator.factorial(num);
-                    if (result > 0) {
+                    BigInteger result = Calculator.factorial(num);
+                   // if (result > 0) {
                         System.out.println(Calculator.factorial(num));
                         break;
-                    }
+                   // }
                 }
             default:
                 System.out.println("Errore!! \n A questo numero non è associato nessun esercizio, riprova");

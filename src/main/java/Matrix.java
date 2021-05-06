@@ -31,7 +31,10 @@ public class Matrix {
             }
         }
     }
-
+    /**
+     printVerticalMatrix() stampa matrice verticale
+     @param matrix matrice
+     */
     public static void printVerticalMatrix(int[][] matrix) {
         System.out.println("\n Verticale ");
         for (int row = 0; row < matrix.length; row++) {
