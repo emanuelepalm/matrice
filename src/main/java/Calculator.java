@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
 public class Calculator {
-    static int result = 0;
-    static int a, b;
+    static float result = 0;
+    static float a;
+    static float b;
     static Scanner scanner = new Scanner(System.in);
 
     public static void welcome() {
@@ -28,15 +29,15 @@ public class Calculator {
                     System.out.println(result);
                 } else {
                     System.out.println("Inserisci il primo numero");
-                    a = scanner.nextInt();
+                    a = scanner.nextFloat();
                 }
             } else {
                 System.out.println("Inserisci il primo numero");
-                a = scanner.nextInt();
+                a = scanner.nextFloat();
             }
 
             System.out.println("Inserisci il Secondo Numero");
-            b = scanner.nextInt();
+            b = scanner.nextFloat();
             System.out.println("Inserisci l'operatore \n+ addizione \n* moltiplicazione \n- sottrazione \n\\ divisione ");
             char operator = scanner.next().charAt(0);
             switch (operator) {
@@ -63,19 +64,19 @@ public class Calculator {
         }
     }
 
-    public static int sum(int a, int b) {
+    public static float sum(float a, float b) {
         return a + b;
     }
 
-    public static int sub(int a, int b) {
+    public static float sub(float a, float b) {
         return a - b;
     }
 
-    public static int div(int a, int b) {
+    public static float div(float a, float b) {
         return a / b;
     }
 
-    public static int mul(int a, int b) {
+    public static float mul(float a, float b) {
         return a * b;
     }
 
