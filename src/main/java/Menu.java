@@ -35,16 +35,21 @@ public class Menu {
     }
 
     public static void matrixMenu() {
-        int[][] matrix = new int[5][5];
-        Matrix.loadMatrix(matrix, 100);
+        System.out.println("Inserisci un numero per le righe, seguito da invio\nPoi fai lo stesso per le colonne");
+        int i = scanner.nextInt();
+        System.out.println(i);
+        int j = scanner.nextInt();
+        System.out.println(j);
+        Matrix matrice = new Matrix(new int[i][j]);
+        matrice.loadMatrix();
         System.out.println("Seleziona: \n1)Stampa Orizziontale    \n2)Stampa Verticale");
         int selezione = scanner.nextInt();
         switch (selezione) {
             case 1:
-                Matrix.printHorizontalMatrix(matrix);
+                matrice.printHorizontalMatrix();
                 break;
             case 2:
-                Matrix.printVerticalMatrix(matrix);
+                matrice.printVerticalMatrix();
                 break;
             default:
                 System.out.println("Errore!! \n A questo numero non è associato nessun esercizio, riprova");
@@ -55,14 +60,20 @@ public class Menu {
     public static void pyramidMenu() {
         System.out.println("Seleziona: \n1)Stampa piramide con numero di righe definito \n2)Stampa piramide con numero di righe casuale");
         int selezione = scanner.nextInt();
+        int num;
         switch (selezione) {
             case 1:
-                Pyramid.generate();
+                System.out.println("Inserisci il numero di righe");
+                num = scanner.nextInt();
+                Pyramid pyramid = new Pyramid(num);
+                pyramid.generate();
                 break;
             case 2:
                 Random random = new Random();
-                int num = random.nextInt(25);
-                Pyramid.generate(num);
+                num = random.nextInt(25);
+                System.out.println("Il numero di righe è " + num);
+                Pyramid pyramidR = new Pyramid(num);
+                pyramidR.generate();
                 break;
             default:
                 System.out.println("Errore!! \n A questo numero non è associato nessun esercizio, riprova");
@@ -70,40 +81,40 @@ public class Menu {
         }
     }
 
-    public static void calculatorMenu() {
+    public void calculatorMenu() {
         System.out.println("Seleziona: \n1)Calcolatrice base \n2)Ritorna i numeri primi fino a un numero inserito \n3)Verifica se un numero è primo \n4) Fattoriale             ");
         int selezione = scanner.nextInt();
+        Calculator calc = new Calculator();
         switch (selezione) {
             case 1:
-                Calculator.calculator();
+                calc.calculator();
                 break;
             case 2:
                 System.out.println("HAI SCELTO TUTTI I NUMERI PRIMI FINO A \nInserisci un numero");
-                num = scanner.nextInt();
-                System.out.println(Calculator.primeNumberRange(num));
+                calc.num = scanner.nextInt();
+                calc.primeNumberRange();
+                System.out.println(calc.numbers);
                 break;
             case 3:
                 System.out.println("HAI SCELTO VERIFICA SE UN NUMERO E' PRIMO \nInserisci un numero");
-                num = scanner.nextInt();
-                if (Calculator.isPrime(num)) {
+                calc.num = scanner.nextInt();
+                calc.isPrime();
+                if (calc.prime) {
                     System.out.println("Il numero è primo");
                 } else {
                     System.out.println("Il numero non è primo");
                 }
                 break;
             case 4:
-                System.out.println("HAI SCELTO FATTORIALE \nInserisci un numero fino a 49");
-                num = scanner.nextInt();
-                if (num <= 0) {
+                System.out.println("HAI SCELTO FATTORIALE \nInserisci un numero ");
+                calc.num = scanner.nextInt();
+                if (calc.num <= 0) {
                     System.err.println("ERRORE!!!\n Il numero deve essere maggiore di 0!");
                     calculatorMenu();
                     break;
                 } else {
-                    BigInteger result = Calculator.factorial(num);
-                   // if (result > 0) {
-                        System.out.println(Calculator.factorial(num));
+                        System.out.println(calc.factorial());
                         break;
-                   // }
                 }
             default:
                 System.out.println("Errore!! \n A questo numero non è associato nessun esercizio, riprova");

@@ -1,59 +1,52 @@
 import java.util.Random;
 
 public class Matrix {
+    private int[][] matrix;
+
+    public Matrix(int[][] matrix) {
+        this.matrix = matrix;
+    };
+
 
     public static void welcome() {
         System.out.println("Esercizio Matrici");
         Menu.matrixMenu();
     }
-    /**
-     loadMatrix() Genera una matrice con parametro impostato da noi
-     @param matrix matrice
-     @param bound  valore del parametro random
-     */
-    public static void loadMatrix(int[][] matrix, int bound) {
-        Random random = new Random();
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                matrix[i][j] = random.nextInt(bound);
-            }
-        }
-    }
+
     /**
      loadMatrix() Genera una matrice con parametro = 20
      @param matrix matrice
      */
-    public static void loadMatrix(int[][] matrix) {
+    public void loadMatrix() {
         Random random = new Random();
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                matrix[i][j] = random.nextInt(20);
+        for (int i = 0; i < this.matrix.length; i++) {
+            for (int j = 0; j < this.matrix[i].length; j++) {
+                this.matrix[i][j] = random.nextInt(20);
             }
         }
     }
     /**
      printVerticalMatrix() stampa matrice verticale
-     @param matrix matrice
      */
-    public static void printVerticalMatrix(int[][] matrix) {
+    public void printVerticalMatrix() {
         System.out.println("\n Verticale ");
-        for (int row = 0; row < matrix.length; row++) {
+        for (int row = 0; row < this.matrix.length; row++) {
             System.out.println();
-            for (int col = 0; col < matrix[row].length; col++) {
-                System.out.println("[" + (row + 1) + "][" + (col + 1) + "] => " + matrix[row][col]);
+            for (int col = 0; col < this.matrix[row].length; col++) {
+                System.out.println("[" + (row + 1) + "][" + (col + 1) + "] => " + this.matrix[row][col]);
             }
         }
     }
 
-    public static void printHorizontalMatrix(int[][] matrix) {
+    public void printHorizontalMatrix() {
         System.out.println("Orizzontale \n");
-        for (int row = 0; row < matrix.length; row++) {
+        for (int row = 0; row < this.matrix.length; row++) {
             System.out.println();
-            for (int col = 0; col < matrix[0].length; col++) {
+            for (int col = 0; col < this.matrix[0].length; col++) {
                 if ((matrix[row][col]) >= 10) {
-                    System.out.print("|" + (matrix[row][col]) + "|");
+                    System.out.print("|" + (this.matrix[row][col]) + "|");
                 } else {
-                    System.out.print("| " + (matrix[row][col]) + "|");
+                    System.out.print("| " + (this.matrix[row][col]) + "|");
                 }
             }
         }

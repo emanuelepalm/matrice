@@ -2,17 +2,34 @@ import java.math.BigInteger;
 import java.util.Scanner;
 
 public class Calculator {
-    static float result = 0;
-    static float a;
-    static float b;
-    static Scanner scanner = new Scanner(System.in);
+    float result = 0;
+    float a;
+    float b;
+    int num;
+    BigInteger bigResult;
+    String numbers = "";
+    boolean prime = true;
+
+    public float getResult() {
+        return result;
+    }
+
+    Scanner scanner = new Scanner(System.in);
+    public Calculator() {
+        this.result = 0;
+    }
+    public Calculator(int num) {
+        this.num = num;
+    }
 
     public static void welcome() {
         System.out.println("Esercizio Calcolatrice");
-        Menu.calculatorMenu();
+        Menu menu = new Menu();
+        menu.calculatorMenu();
     }
 
-    public static void calculator() {
+    public void calculator() {
+        Calculator calc = new Calculator();
         boolean cond = true;
         System.out.println("HAI SCELTO LA CALCOLATRICE");
         while (cond) {
@@ -22,42 +39,42 @@ public class Calculator {
                 cond = false;
                 break;
             }
-            if (result != 0) {
+            if (calc.result != 0) {
                 System.out.println("Premi un tasto qualsiasi seguito da invio per usare il risultato come primo numero \nc per azzerarlo");
                 stroke = scanner.next().charAt(0);
                 if (stroke != 'c') {
-                    a = result;
-                    System.out.println(result);
+                    calc.a = calc.result;
+                    System.out.println(calc.result);
                 } else {
                     System.out.println("Inserisci il primo numero");
-                    a = scanner.nextFloat()                         ;
+                   calc.a = scanner.nextFloat();
                 }
             } else {
                 System.out.println("Inserisci il primo numero");
-                a = scanner.nextFloat();
+                calc.a = scanner.nextFloat();
             }
 
             System.out.println("Inserisci il Secondo Numero");
-            b = scanner.nextFloat();
+            calc.b = scanner.nextFloat();
             System.out.println("Inserisci l'operatore \n+ addizione \n* moltiplicazione \n- sottrazione \n\\ divisione ");
             char operator = scanner.next().charAt(0);
             switch (operator) {
 
                 case '+' :
-                    result = sum(a, b);
-                    System.out.println(a + " + " + b + " = " + result);
+                    calc.result = calc.sum();
+                    System.out.println(calc.a + " + " + calc.b + " = " + calc.result);
                     break;
                 case '*' :
-                    result = mul(a, b);
-                    System.out.println(a + " * " + b + " = " + result);
+                    calc.result = calc.mul();
+                    System.out.println(calc.a + " * " + calc.b + " = " + calc.result);
                     break;
                 case '-' :
-                    result = sub(a, b);
-                    System.out.println(a + " - " + b + " = " + result);
+                    calc.result = calc.sub();
+                    System.out.println(calc.a + " - " + calc.b + " = " + calc.result);
                     break;
                 case '\\' :
-                    result = div(a, b);
-                    System.out.println(a + " \\ " + b + " = " + result);
+                    calc.result = calc.div();
+                    System.out.println(calc.a + " \\ " + calc.b + " = " + calc.result);
                     break;
                 default:
                     System.out.println("Errore tasto non riconosciuto!!!");
@@ -65,55 +82,55 @@ public class Calculator {
         }
     }
 
-    public static float sum(float a, float b) {
-        return a + b;
+    public float sum() {
+        return this.a + this.b;
     }
 
-    public static float sub(float a, float b) {
-        return a - b;
+    public float sub() {
+        return this.a - this.b;
     }
 
-    public static float div(float a, float b) {
-        return a / b;
+    public float div() {
+        return this.a / this.b;
     }
 
-    public static float mul(float a, float b) {
-        return a * b;
+    public float mul() {
+        return this.a * this.b;
     }
 
-    public static String primeNumberRange(int num) {
-        String numbers = "";
-        while (num > 1) {
-            if (isPrime(num)) {
-                numbers += num + "\n";
+    public String primeNumberRange() {
+        while (this.num > 1) {
+            this.prime = true;
+            this.isPrime();
+            if (this.prime) {
+                this.numbers += this.num + "\n";
             }
-            num -= 1;
+            this.num -= 1;
         }
-        return numbers;
+        return this.numbers;
 
     }
 
-    public static boolean isPrime(int num) {
-        boolean result = true;
-        if (num == 1) {
-            result = false;
+    public boolean isPrime() {
+        if (this.num == 1) {
+            this.prime = false;
         }
-        for (int i = 2; i <= num / 2; ++i) {
-            if (num % i == 0) {
-                result = false;
+        for (int i = 2; i <= this.num / 2; ++i) {
+            if (this.num % i == 0) {
+                this.prime = false;
             }
         }
-        return result;
+        return this.prime;
     }
 
-    public static BigInteger factorial(int num) {
-        BigInteger result = BigInteger.valueOf(1);
+    public BigInteger factorial() {
+        this.bigResult = BigInteger.valueOf(1);
 
         for (long factor = 2; factor <= num; factor++) {
-            result = result.multiply(BigInteger.valueOf(factor));
+            this.bigResult = this.bigResult.multiply(BigInteger.valueOf(factor));
         }
 
-        return result;
+        return this.bigResult;
     }
 
 
